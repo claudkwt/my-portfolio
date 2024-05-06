@@ -1,5 +1,24 @@
-export default function topicBlock() {
+import About from "./about";
+import Experience from "./experience";
+import Projects from "./projects";
+
+export default function Topicblock(props: {id: number, text: string}) {
     return (
-        <div className="h-80 border border-1">ABOUT</div>
-    )
+      <div>
+        <section id={props.text}>
+            {props.text === "About" 
+            ? 
+                <About />
+            : <></>}
+            {props.text === "Experience" 
+            ? 
+                <Experience />
+            : <></>}
+            {props.text === "Projects" 
+            ? 
+                <Projects />
+            : <></>}
+        </section>
+      </div>
+    );
 }
