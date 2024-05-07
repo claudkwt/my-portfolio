@@ -26,7 +26,7 @@ export default function Sidebar() {
         >    
             <div>
                 <div
-                    className="p-6 bg-slate-900 dark:bg-white text-2xl font-black text-black w-fit"
+                    className="p-6 bg-primary text-2xl font-black text-black w-fit"
                     onClick={() => {handleNav(0, "")}}
                 >
                     CL

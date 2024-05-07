@@ -13,10 +13,7 @@ export const aboutDetails = {
     These days I am busy with my research in interaction between humans and
     machines, with Singapore University of Technology & Design. When I'm not
     busy squashing digital bugs or pushing pixels, you'll often find me
-    embracing the joys of life beyond the screen. Whether I'm concocting
-    culinary creations in the kitchen, wielding brushes on canvas, or scaling
-    the heights of indoor cliffs, I'm always seeking new adventures and
-    creative outlets.
+    concocting culinary creations in the kitchen or scaling heights at climbing gyms. 
 
     <br /><br />
         
