@@ -1,5 +1,6 @@
 export const experienceDetails = [
     {
+        id: 0,
         title: "Research Officer  • TLabs @ SUTD",
         description: `Design & administered experiments investigating human-computer interactions (HCI) using Unity and 
         C# to create simulations in HoloLens. 
@@ -9,6 +10,7 @@ export const experienceDetails = [
         labels: ["Unity", "C#", "OpenCV", "Matlab"],
     },
     {
+        id: 1,
         title: "Software Engineer Intern • ST Kinetics",
         description: `Developed testing frameworks to evaluate performance of middlewares using
         Python and C++ for ROS 1 and ROS 2
@@ -17,10 +19,11 @@ export const experienceDetails = [
         startTime: new Date("2021-06-01"),
         endTime: new Date("2021-09-01"),
         labels: ["C++", "Pandas", "ROS"],
-    }
+    },
 ];
 
 export type jobCardProps = {
+    id: number,
     title: string, 
     description: string, 
     startTime: Date, 

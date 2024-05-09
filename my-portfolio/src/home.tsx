@@ -3,7 +3,6 @@ import { navPages } from "./utils/navPages"
 
 function Home() {
     return (
-        
         <div>
             {navPages.map((item)=> {
                 return (

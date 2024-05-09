@@ -1,24 +1,35 @@
 import About from "./about";
 import Experience from "./experience";
 import Projects from "./projects";
+import useWindowSize from "@/utils/useWindowSize";
 
 export default function Topicblock(props: {id: number, text: string}) {
+    const { width } = useWindowSize();
+    const isMobile = width < 768;
+
     return (
-      <div>
         <section id={props.text}>
             {props.text === "About" 
             ? 
-                <About />
+                <div>
+                    {isMobile ? <div className="font-bold text-2xl block md:hidden py-3 sticky top-0 bg-background">About </div>: <></>}
+                    <About />
+                </div>
             : <></>}
             {props.text === "Experience" 
             ? 
-                <Experience />
+                <div>
+                    {isMobile ? <div className="font-bold text-2xl block md:hidden py-3 sticky top-0">Experience</div>: <></>}
+                    <Experience />
+                </div>
             : <></>}
             {props.text === "Projects" 
             ? 
-                <Projects />
+                <div>
+                    {isMobile ? <div className="font-bold text-2xl block md:hidden py-3 sticky top-0">Projects</div>: <></>}
+                    <Projects />
+                </div>
             : <></>}
         </section>
-      </div>
     );
 }

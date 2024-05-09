@@ -18,7 +18,7 @@ export default function jobCard(props: jobCardProps) {
             </div>
             <div className="mt-2">
                 {props.labels &&
-                    props.labels.map((l) => <Badge className="mr-1" variant={"secondary"}>{l}</Badge>
+                    props.labels.map((l) => <Badge className="mr-1" variant={"secondary"} key={l}>{l}</Badge>
                 )}
             </div>
         </div>

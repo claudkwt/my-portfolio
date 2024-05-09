@@ -53,7 +53,7 @@ export default function About() {
         <div className=" w-1/3 self-center text-sm grow-0 bg-popover p-4 rounded-2xl"> 
           {aboutDetails.piechart && 
             aboutDetails.piechart[0].skills?.map((item) => (
-              <ul>{item}</ul>
+              <ul key={item}>{item}</ul>
             ))
           }
         </div>
@@ -84,7 +84,7 @@ export default function About() {
         <div className=" w-1/3 self-center text-right text-sm grow-0 bg-popover p-4 rounded-2xl"> 
           {aboutDetails.piechart && 
               aboutDetails.piechart[1].skills?.map((item) => (
-                <ul>{item}</ul>
+                <ul key={item}>{item}</ul>
               ))
             }
         </div>
