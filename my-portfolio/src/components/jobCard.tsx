@@ -4,7 +4,7 @@ import { Badge } from "@/app/ui/badge"
 
 export default function jobCard(props: jobCardProps) {
     return (
-      <div className="flex w-full mb-6">
+      <div className="flex w-full mb-12">
         <div className="min-w-fit w-1/3 mr-3 text-muted-text">
           {formatMonthYear(props.startTime)} -{" "}
           {props.endTime && props.endTime

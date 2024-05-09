@@ -18,10 +18,10 @@ export const aboutDetails = {
     <br /><br />
         
     Feel free to explore my work and find out more about me!`,
-  piechart: [
+  pieChart: [
     {
       name: 'Coder', 
-      value: 3, 
+      value: 15, 
       labelColor: "#FFFFFF", 
       skills: [
         "HTML, CSS & JS",
@@ -32,7 +32,7 @@ export const aboutDetails = {
     },
     { 
       name: 'Designer', 
-      value: 2, 
+      value: 12, 
       labelColor: "#9A0808",
       skills: [
         "3D Modeling & Rendering",
@@ -41,6 +41,6 @@ export const aboutDetails = {
       ]
     },
   ],
-  piecolors: ['#9A0808', '#CFC0A3' ],
+  pieColors: ['#9A0808', '#CFC0A3' ],
 
 };

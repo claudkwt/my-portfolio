@@ -17,7 +17,7 @@ export default function Topicblock ({ text, aboutRef, experienceRef, projectsRef
     const isMobile = width < 768;
 
     return (
-        <section>
+        <section className="mb-10">
             {text === "About" 
             ? 
                 <div ref={aboutRef} id={text}>
