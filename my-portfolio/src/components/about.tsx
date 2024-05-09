@@ -2,13 +2,22 @@ import { aboutDetails } from "../utils/aboutDetails";
 import { PieChart, Pie, Cell } from 'recharts';
 import { useState } from "react";
 
+interface CustomizedLabelProps {
+  cx: number, 
+  cy: number,
+  midAngle: number;
+  innerRadius: number;
+  outerRadius: number;
+  index: number;
+}
+
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const COLORS = ['#9A0808', '#CFC0A3' ];
   
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index }) => {
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index }: CustomizedLabelProps) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -28,8 +37,9 @@ export default function About() {
     );
   };
 
-  function handleClick(_e: any, _data: { name: string; value: number; labelColor: string; }): void {
+  function handleClick(data: { name: string; value: number; labelColor: string; skills: string[]; }): void {
     setIsVisible(!isVisible)
+    console.log(data);
   }
 
   return (
@@ -59,7 +69,7 @@ export default function About() {
               paddingAngle={1}
               dataKey="value"
               style={{ outline: "none", stroke: "none" }}
-              onClick={(e, index) => handleClick(e, aboutDetails.piechart[index])}
+              onClick={(index) => handleClick(aboutDetails.piechart[index])}
             >
                 {aboutDetails.piechart.map((_entry, index) => (
                   <Cell
