@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { navPages } from "../utils/navPages";
 import { motion } from 'framer-motion';
 import SocialMedia from "./socialMedia";
 import useWindowSize from "@/utils/useWindowSize";
 
-export default function Sidebar() {
+interface SideBarProps {
+    aboutRef: React.RefObject<HTMLDivElement>;
+    experienceRef: React.RefObject<HTMLDivElement>;
+    projectsRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function Sidebar({aboutRef, experienceRef, projectsRef}: SideBarProps) {
     const [nav, setNav]  = useState<number>(0);
+    const [activeSection, setActiveSection] = useState<string>('about');
+    const { width } = useWindowSize();
+    const isMobile = width < 768
 
     const scrollToSection = (sectionId : string) => {
         const section = document.getElementById(sectionId);
@@ -19,8 +28,31 @@ export default function Sidebar() {
         setNav(val)
         scrollToSection(label)
     }
-    const { width } = useWindowSize();
-    const isMobile = width < 768;
+    useEffect(() => {
+        const options = {
+          rootMargin: '0px 0px -50% 0px',
+          threshold: 0.6,
+        };
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        }, options);
+    
+        const sections = [aboutRef.current, experienceRef.current, projectsRef.current];
+        sections.forEach((section) => {
+          if (section) observer.observe(section);
+        });
+    
+        return () => {
+          sections.forEach((section) => {
+            if (section) observer.unobserve(section);
+          });
+        };
+      }, []);
 
     return (
         <>
@@ -47,7 +79,7 @@ export default function Sidebar() {
                                         onClick={ () => {handleNav(item.id, item.text)}}
                                     >
                                         <Link
-                                            className={`${(nav === item.id) ? "font-medium": "font-light"}`}
+                                            className={`${(nav === item.id|| activeSection === item.text) ? "font-medium": "font-light"}`}
                                             to={`/#${item.text}`}
                                         >
                                             {item.text}
