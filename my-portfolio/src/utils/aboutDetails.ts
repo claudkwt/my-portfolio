@@ -18,4 +18,29 @@ export const aboutDetails = {
     <br /><br />
         
     Feel free to explore my work and find out more about me!`,
+  piechart: [
+    {
+      name: 'Coder', 
+      value: 3, 
+      labelColor: "#FFFFFF", 
+      skills: [
+        "HTML, CSS & JS",
+        "React & Typescript",
+        "Python ",
+        "MRTK in Unity C#"
+      ] 
+    },
+    { 
+      name: 'Designer', 
+      value: 2, 
+      labelColor: "#9A0808",
+      skills: [
+        "3D Modeling & Rendering",
+        "Illustrator & Photoshop",
+        "Product Design"
+      ]
+    },
+  ],
+  piecolors: ['#9A0808', '#CFC0A3' ],
+
 };

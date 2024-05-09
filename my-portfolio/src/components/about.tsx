@@ -1,21 +1,14 @@
 import { aboutDetails } from "../utils/aboutDetails";
 import { PieChart, Pie, Cell } from 'recharts';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/app/ui/popover"
+import { useState } from "react";
 
 
 export default function About() {
-  const data = [
-    { name: 'Coder', value: 3, labelColor: "#FFFFFF" },
-    { name: 'Designer', value: 2, labelColor: "#9A0808" },
-  ];
+  const [isVisible, setIsVisible] = useState(false);
   const COLORS = ['#9A0808', '#CFC0A3' ];
-
+  
   const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -25,34 +18,39 @@ export default function About() {
         x={x}
         y={y}
         fontWeight="bold"
-        fill={`${data[index % data.length].labelColor}`}
+        fill={`${aboutDetails.piechart[index % aboutDetails.piechart.length].labelColor}`}
         textAnchor={"middle"}
         style={{ outline: "none", stroke: "none"}}
         dominantBaseline="central"
       >
-        {`${data[index % data.length].name}`}
+        {`${aboutDetails.piechart[index % aboutDetails.piechart.length].name}`}
       </text>
     );
   };
 
+  function handleClick(_e: any, _data: { name: string; value: number; labelColor: string; }): void {
+    setIsVisible(!isVisible)
+  }
+
   return (
-    <div className="mb-3 flex w-full justify-end">
-      <div className="flex flex-col w-full md:w-11/12">
-        <span className="font-bold text-xl"> {aboutDetails.title} </span>
-        <div
-          className="my-3 text-justify font-light whitespace-normal"
-          dangerouslySetInnerHTML={{ __html: aboutDetails.description }}
-        />
-        <div className="flex place-content-center">
-          <div className="self-center text-sm grow-0"> 
-            <ul>HTML, CSS & JS</ul>
-            <ul>React & Typescript</ul>
-            <ul>Python</ul>
-            <ul>MRTK in Unity C#</ul>
-          </div>
+    <>
+      <span className="font-bold text-xl"> {aboutDetails.title} </span>
+      <div
+        className="my-3 text-justify text-muted-text font-light whitespace-normal"
+        dangerouslySetInnerHTML={{ __html: aboutDetails.description }}
+      />
+      <div className="flex place-content-center">
+        <div className=" w-1/3 self-center text-sm grow-0 bg-popover p-4 rounded-2xl"> 
+          {aboutDetails.piechart && 
+            aboutDetails.piechart[0].skills?.map((item) => (
+              <ul>{item}</ul>
+            ))
+          }
+        </div>
+        <div className="min-w-fit w-1/3 self-center">
           <PieChart width={250} height={250} style={{ outline: "none", stroke: "none" }}>
             <Pie
-              data={data}
+              data={aboutDetails.piechart}
               cx="50%"
               cy="50%"
               labelLine={false}
@@ -61,8 +59,9 @@ export default function About() {
               paddingAngle={1}
               dataKey="value"
               style={{ outline: "none", stroke: "none" }}
+              onClick={(e, index) => handleClick(e, aboutDetails.piechart[index])}
             >
-                {data.map((_entry, index) => (
+                {aboutDetails.piechart.map((_entry, index) => (
                   <Cell
                     style={{ outline: "none", stroke: "none" }}
                     key={`cell-${index}`}
@@ -71,13 +70,15 @@ export default function About() {
                 ))}
             </Pie>
           </PieChart>
-          <div className="self-center text-right text-sm grow-0"> 
-            <ul>3D Modeling & Rendering</ul>
-            <ul>Illustrator & Photoshop</ul>
-            <ul>Product Development Pipeline</ul>
-          </div>
+        </div>
+        <div className=" w-1/3 self-center text-right text-sm grow-0 bg-popover p-4 rounded-2xl"> 
+          {aboutDetails.piechart && 
+              aboutDetails.piechart[1].skills?.map((item) => (
+                <ul>{item}</ul>
+              ))
+            }
         </div>
       </div>
-    </div>
+    </>
   );
 }

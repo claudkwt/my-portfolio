@@ -8,7 +8,7 @@ import Sidebar from "./components/sidebar"
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Router>
-            <div className="px-16 flex w-screen pb-10 overflow-x-hidden justify-center h-screen">
+            <div className="px-16 flex w-screen pb-10 overflow-x-hidden place-content-center h-screen">
                 <Sidebar /> 
                 <div className="w-full md:w-2/3 flex-col pt-10">
                     <Routes>

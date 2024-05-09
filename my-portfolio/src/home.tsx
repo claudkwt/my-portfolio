@@ -7,8 +7,10 @@ function Home() {
         <div>
             {navPages.map((item)=> {
                 return (
-                    <div key={item.id}>
-                        <Topicblock {...item}>{item.text}</Topicblock>
+                    <div key={item.id} className="mb-3 flex w-full justify-end">
+                        <div className="flex flex-col w-full md:w-11/12">
+                            <Topicblock {...item}>{item.text}</Topicblock>
+                        </div>
                     </div>
                 )
             })}

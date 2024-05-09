@@ -22,7 +22,7 @@ export default function Sidebar() {
     return (
         /* TODO: Conditionally render for mobile and desktop */
         <div
-            className="top-0 sticky hidden md:flex md:flex-col pt-10 pr-24 justify-between grow"
+            className="top-0 sticky hidden h-full md:flex md:flex-col pt-10 pr-24 justify-between"
         >    
             <div>
                 <div
