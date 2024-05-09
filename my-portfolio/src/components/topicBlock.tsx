@@ -9,9 +9,10 @@ interface TopicBlockProps {
     aboutRef: React.RefObject<HTMLDivElement>;
     experienceRef: React.RefObject<HTMLDivElement>;
     projectsRef: React.RefObject<HTMLDivElement>;
+    children: React.ReactNode;
 }
 
-export default function Topicblock ({id, text, aboutRef, experienceRef, projectsRef}: TopicBlockProps) {
+export default function Topicblock ({ text, aboutRef, experienceRef, projectsRef}: TopicBlockProps) {
     const { width } = useWindowSize();
     const isMobile = width < 768;
 
