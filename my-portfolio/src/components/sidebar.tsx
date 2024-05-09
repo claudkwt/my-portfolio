@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { navPages } from "../utils/navPages";
 import { motion } from 'framer-motion';
 import SocialMedia from "./socialMedia";
+import useWindowSize from "@/utils/useWindowSize";
 
 export default function Sidebar() {
     const [nav, setNav]  = useState<number>(0);
@@ -18,45 +19,49 @@ export default function Sidebar() {
         setNav(val)
         scrollToSection(label)
     }
+    const { width } = useWindowSize();
+    const isMobile = width < 768;
 
     return (
-        /* TODO: Conditionally render for mobile and desktop */
-        <div
-            className="top-0 sticky hidden h-full md:flex md:flex-col pt-10 pr-24 justify-between"
-        >    
-            <div>
-                <div
-                    className="p-6 bg-primary text-2xl font-black text-black w-fit"
-                    onClick={() => {handleNav(0, "")}}
-                >
-                    CL
-                </div>
-                <ul className="mt-12 flex flex-col space-y-1">
-                    {navPages.map((item)=> {
-                        return (
-                            <motion.div
-                                whileHover={{ scale: 1.1, translateX: 4 }}
-                                whileTap={{ scale: 0.9, translateX: 3 }}
-                                key={item.id}
-                            >
-                                <li
-                                    onClick={ () => {handleNav(item.id, item.text)}}
+        <>
+            {!isMobile ?
+            <div
+                className="top-0 sticky h-full md:flex md:flex-col pt-10 pr-24 justify-between"
+            >
+                <div>
+                    <div
+                        className="p-6 bg-primary text-2xl font-black text-black w-fit"
+                        onClick={() => {handleNav(0, "")}}
+                    >
+                        CL
+                    </div>
+                    <ul className="mt-12 flex flex-col space-y-1">
+                        {navPages.map((item)=> {
+                            return (
+                                <motion.div
+                                    whileHover={{ scale: 1.1, translateX: 4 }}
+                                    whileTap={{ scale: 0.9, translateX: 3 }}
+                                    key={item.id}
                                 >
-                                    <Link
-                                        className={`${(nav === item.id) ? "font-medium": "font-light"}`}
-                                        to={`/#${item.text}`}
+                                    <li
+                                        onClick={ () => {handleNav(item.id, item.text)}}
                                     >
-                                        {item.text}
-                                    </Link>
-                
-                                </li>
-                            </motion.div>
-                        )
-                    })}
-                </ul>
+                                        <Link
+                                            className={`${(nav === item.id) ? "font-medium": "font-light"}`}
+                                            to={`/#${item.text}`}
+                                        >
+                                            {item.text}
+                                        </Link>
+            
+                                    </li>
+                                </motion.div>
+                            )
+                        })}
+                    </ul>
+                </div>
+                <SocialMedia />
             </div>
-            <SocialMedia />
-        </div>
-
+            : <></>}
+        </>            
     )
 }
