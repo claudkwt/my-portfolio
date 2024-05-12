@@ -100,7 +100,7 @@ export default function About() {
         </div> */}
       </div>
       {isOpen==1 && (
-        <div className="bg-popover rounded-3xl w-full">
+        <div className="bg-popover rounded-2xl w-full text-sm text-center p-2">
             {aboutDetails.pieChart && 
             aboutDetails.pieChart[0].skills?.map((item) => (
               <ul key={item}>{item}</ul>

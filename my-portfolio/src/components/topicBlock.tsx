@@ -21,21 +21,21 @@ export default function Topicblock ({ text, aboutRef, experienceRef, projectsRef
             {text === "About" 
             ? 
                 <div ref={aboutRef} id={text}>
-                    {isMobile ? <div className="font-bold text-2xl block md:hidden z-50 py-3 sticky top-0 bg-background">About </div>: <></>}
+                    {isMobile ? <div className="font-bold text-2xl block md:hidden w-screen z-50 py-3 sticky top-0 bg-background">About </div>: <></>}
                     <About />
                 </div>
             : <></>}
             {text === "Experience" 
             ? 
                 <div ref={experienceRef} id={text}>
-                    {isMobile ? <div className="font-bold text-2xl block md:hidden z-50 py-3 sticky top-0 bg-background">Experience</div>: <></>}
+                    {isMobile ? <div className="font-bold text-2xl block md:hidden w-screen z-50 py-3 sticky top-0 bg-background">Experience</div>: <></>}
                     <Experience />
                 </div>
             : <></>}
             {text === "Projects" 
             ? 
                 <div ref={projectsRef} id={text}>
-                    {isMobile ? <div className="font-bold text-2xl block md:hidden z-50 py-3 sticky top-0 bg-background">Projects</div>: <></>}
+                    {isMobile ? <div className="font-bold text-2xl block md:hidden w-screen z-50 py-3 sticky top-0 bg-background">Projects</div>: <></>}
                     <Projects />
                 </div>
             : <></>}
