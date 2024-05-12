@@ -13,9 +13,10 @@ export default function jobCard(props: jobCardProps) {
         </div>
         <div className="flex flex-col">
             <span className="font-semibold">{props.title}</span>
-            <div className="text-muted-text">
-                {props.description}
-            </div>
+            <div
+                className="text-justify text-muted-text whitespace-normal"
+                dangerouslySetInnerHTML={{ __html: props.description }}
+            />
             <div className="mt-2">
                 {props.labels &&
                     props.labels.map((l) => <Badge className="mr-1" variant={"secondary"} key={l}>{l}</Badge>
