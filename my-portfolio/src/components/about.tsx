@@ -56,19 +56,12 @@ export default function About() {
         className="my-7 text-justify text-muted-text font-light whitespace-normal"
         dangerouslySetInnerHTML={{ __html: aboutDetails.description }}
       />
-      <div className="flex place-content-center">
-        {/* <div className=" w-1/3 self-center text-sm grow-0 bg-popover p-4 rounded-2xl"> 
-          {aboutDetails.pieChart && 
-            aboutDetails.pieChart[0].skills?.map((item) => (
-              <ul key={item}>{item}</ul>
-            ))
-          }
-        </div> */}
-        <div className="mb-3">
+      <div className="flex place-content-center mb-3">
             <PieChart
               width={220}
               height={220}
               style={{ outline: "none", stroke: "none"}}
+              onClick={(_data, index) => handleClick(true, index)}
               onMouseEnter={(_data, index) => handleClick(true, index)}
               onMouseLeave={() => handleClick(false)}
               className="z-0"
@@ -98,7 +91,6 @@ export default function About() {
                 ))}
               </Pie>
             </PieChart>
-        </div>
         {/* <div className=" w-1/3 self-center text-right text-sm grow-0 bg-popover p-4 rounded-2xl"> 
           {aboutDetails.pieChart && 
               aboutDetails.pieChart[1].skills?.map((item) => (
@@ -109,12 +101,20 @@ export default function About() {
       </div>
       {isOpen==1 && (
         <div className="bg-popover rounded-3xl w-full">
-            HELLO!
+            {aboutDetails.pieChart && 
+            aboutDetails.pieChart[0].skills?.map((item) => (
+              <ul key={item}>{item}</ul>
+            ))
+          }
         </div>
       )}
       {isOpen==2 && (
-        <div className="bg-popover rounded-3xl w-full">
-            BYE :\
+        <div className="bg-popover rounded-2xl w-full text-sm text-center p-2">
+            {aboutDetails.pieChart && 
+              aboutDetails.pieChart[1].skills?.map((item) => (
+                <ul key={item}>{item}</ul>
+              ))
+            }
         </div>
       )}
     </>
