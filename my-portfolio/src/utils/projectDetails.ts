@@ -11,7 +11,7 @@ export const projectDetails = [
     {
         id: 1, 
         title: "Project Title",
-        description: "Deploy your new project in one-click.",
+        description: "Deploy your new project in one-click.", //Aim trainer
         tags: [ 
             'tag' 
         ],
@@ -20,7 +20,7 @@ export const projectDetails = [
     {
         id: 2, 
         title: "Project Title",
-        description: "Deploy your new project in one-click.",
+        description: "Deploy your new project in one-click.", //Using emoji on a drawing board and upload
         tags: [ 
             'tag' 
         ],

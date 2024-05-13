@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import Sidebar from "./components/sidebar";
-import Topicblock from "./components/topicBlock";
-import { navPages } from "./utils/navPages";
+import Sidebar from "../components/sidebar";
+import Topicblock from "../components/topicBlock";
+import { navPages } from "../utils/navPages";
 
 function Home() {
 
