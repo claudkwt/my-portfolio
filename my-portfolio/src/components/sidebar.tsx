@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { navPages } from "../utils/navPages";
 import { motion } from 'framer-motion';
 import SocialMedia from "./socialMedia";
 import useWindowSize from "@/utils/useWindowSize";
 
 interface SideBarProps {
-    aboutRef: React.RefObject<HTMLDivElement>;
-    experienceRef: React.RefObject<HTMLDivElement>;
-    projectsRef: React.RefObject<HTMLDivElement>;
+    isBasic?: boolean;
+    aboutRef?: React.RefObject<HTMLDivElement>;
+    experienceRef?: React.RefObject<HTMLDivElement>;
+    projectsRef?: React.RefObject<HTMLDivElement>;
 }
 
-export default function Sidebar({aboutRef, experienceRef, projectsRef}: SideBarProps) {
+export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef}: SideBarProps) {
+    const navigate = useNavigate();
     const [nav, setNav]  = useState<number>(0);
     const [activeSection, setActiveSection] = useState<string>('about');
     const { width } = useWindowSize();
@@ -30,29 +32,37 @@ export default function Sidebar({aboutRef, experienceRef, projectsRef}: SideBarP
     }
     useEffect(() => {
         const options = {
-          rootMargin: '0px 0px -50% 0px',
+          rootMargin: '0px 0px -30% 0px',
           threshold: 0.6,
         };
     
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
-                }
+        if (!isBasic) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            }, options);
+        
+            const sections = [aboutRef?.current, experienceRef?.current, projectsRef?.current];
+            sections.forEach((section) => {
+            if (section) observer.observe(section);
             });
-        }, options);
     
-        const sections = [aboutRef.current, experienceRef.current, projectsRef.current];
-        sections.forEach((section) => {
-          if (section) observer.observe(section);
-        });
-    
-        return () => {
-          sections.forEach((section) => {
-            if (section) observer.unobserve(section);
-          });
-        };
+            return () => {
+              sections.forEach((section) => {
+                if (section) observer.unobserve(section);
+              });
+            };
+        }
       }, []);
+
+    function handleLogoClick(){
+        if (isBasic){
+            navigate("/")
+        }
+    }
 
     return (
         <>
@@ -63,11 +73,12 @@ export default function Sidebar({aboutRef, experienceRef, projectsRef}: SideBarP
                 <div>
                     <div
                         className="p-6 bg-primary text-2xl font-black text-black w-fit"
-                        onClick={() => {handleNav(0, "")}}
+                        onClick={handleLogoClick}
                     >
                         CL
                     </div>
-                    <ul className="mt-12 flex flex-col space-y-1">
+                    {!isBasic
+                    ? <ul className="mt-12 flex flex-col space-y-1">
                         {navPages.map((item)=> {
                             return (
                                 <motion.div
@@ -90,6 +101,7 @@ export default function Sidebar({aboutRef, experienceRef, projectsRef}: SideBarP
                             )
                         })}
                     </ul>
+                    : <></>}
                 </div>
                 <SocialMedia />
             </div>
