@@ -12,7 +12,7 @@ export default function LandingPage() {
     const controls = useAnimation();
   
     useEffect(() => {
-        let lastScrollY = window.scrollY;
+        //let lastScrollY = window.scrollY;
         if (!isMobile) {
             const handleScroll = () => {
                 if (window.scrollY > 50) {
@@ -30,7 +30,7 @@ export default function LandingPage() {
                     transition: { duration: 0.5 } // controls the speed of the animation
                     });
                 }
-                lastScrollY = window.scrollY;
+                //lastScrollY = window.scrollY;
             };
             window.addEventListener('scroll', handleScroll);
             return () => window.removeEventListener('scroll', handleScroll);
