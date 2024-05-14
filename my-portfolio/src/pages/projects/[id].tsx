@@ -56,48 +56,43 @@ export default function ProjectPage () {
     }
 
     return (
-        <div className="px-16 flex w-screen pb-10 overflow-x-hidden place-content-center h-screen">
-            <Sidebar isBasic={true}/>
-            <div className="w-full md:w-1/2 flex-col pt-10 space-y-10">
-                <h1 className='text-2xl font-bold'>{project.title}</h1>
-                <div className='text-muted-text font-light'>
-                    {project.description}
-                </div>
-                <div className="w-fit justify-self-start place-items-baseline">
-                {project.tags.map((tag) => (
-                  <span key={tag}>
-                    <ProjectTagBar tag={tag} />
-                  </span>
-                ))}
-              </div>
-                <div className="text-center text-sm text-muted-text">
-                    Slide {current} of {count}
-                </div>
-                <Carousel  setApi={setApi}>
-                    
+        <>
+            <div className="px-16 flex w-screen pb-10 pt-10 overflow-x-hidden place-content-center h-screen scrollbar">
+                <Sidebar isBasic={true} logoVariant='back'/>
+                <div className="w-full md:w-1/2 flex-col space-y-10">
+                    <h1 className='text-2xl font-bold'>{project.title}</h1>
+                    <div className='text-muted-text font-light'>
+                        {project.description}
+                    </div>
+                    <div className="w-fit justify-self-start place-items-baseline">
+                    {project.tags.map((tag) => (
+                      <span key={tag}>
+                        <ProjectTagBar tag={tag} />
+                      </span>
+                    ))}
+                  </div>
+                <Carousel setApi={setApi}>
+                    <div className="text-center text-sm text-muted-text mb-3">
+                        Slide {current} of {count}
+                    </div>
                     <CarouselPrevious />
                     <CarouselNext />
-                    <CarouselContent className="">
+                    <CarouselContent className='mb-10'>
                     {
-                        project.assets.map((img, index) => {
+                        project.assets.map((asset, index) => {
                         return (
-                            <CarouselItem key={img}>
-                                <Card>
-                                    <CardContent className="flex aspect-square items-center justify-center p-2">
+                            <CarouselItem key={asset[0]}>
+                                <Card className='flex h-full items-center justify-center rounded-xl'>
+                                    <CardContent className="flex flex-col space-y-6 items-center justify-center p-2">
+                                        <span className='text-muted-text italic'>{asset[1]}</span>
                                         <img
                                             className="object-cover"
-                                            src={img}
+                                            src={asset[0]}
                                             alt="loading..."
-                                            onClick={() => handleImageClick(index)} 
+                                            onClick={() => handleImageClick(index)}
                                         />
                                     </CardContent>
                                 </Card>
-                                <Modal 
-                                    key={index}
-                                    isOpen={openModals[index]} 
-                                    onClose={() => handleCloseModal(index)}
-                                    imageUrl={img} 
-                                />
                             </CarouselItem>
                         )
                         })
@@ -105,6 +100,19 @@ export default function ProjectPage () {
                     </CarouselContent>
                 </Carousel>
             </div>
-        </div>
+                </div>
+                {
+            project.assets.map((asset, index) => {
+            return (
+                <Modal
+                    key={index}
+                    isOpen={openModals[index]}
+                    onClose={() => handleCloseModal(index)}
+                    imageUrl={asset[0]}
+                />
+            )
+            })
+                }
+        </>
     )
 }

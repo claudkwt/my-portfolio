@@ -24,7 +24,7 @@ export interface projectCardProps {
     title: string, 
     description: string, 
     tags: string[],
-    assets: string[]
+    assets: string[][]
 
 }
 
@@ -82,10 +82,10 @@ export default function ProjectCard(project: projectCardProps) {
               </DialogFooter>
             </div>
             {project.assets[0] && 
-            <span>
+            <span className="place-self-center">
               <img
                 className="object-contain"
-                src={project.assets[0]}
+                src={project.assets[0][0]}
                 alt="loading..."
               />
             </span>}
@@ -99,7 +99,6 @@ export default function ProjectCard(project: projectCardProps) {
               View More
             </Button>
           </div>
-          {/*  */}
         </DialogContent>
       </Dialog>
     );

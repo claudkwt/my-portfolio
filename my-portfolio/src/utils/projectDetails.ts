@@ -23,9 +23,9 @@ export const projectDetails = [
             'UI/UX', 
         ],
         assets: [
-            project0_1,
-            project0_2,
-            project0_3,
+            [project0_1, "Figma Design"],
+            [project0_2, "Mockups for user research"],
+            [project0_3, "Release 1 of our Product"],
         ]
     },
     {

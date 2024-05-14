@@ -12,8 +12,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, imageUrl }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 h-screen w-screen">
-      <div className="relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 h-screen w-screen">
+      <div className="relative max-h-full max-w-full">
         <Button
           onClick={onClose} 
           variant={"default"}

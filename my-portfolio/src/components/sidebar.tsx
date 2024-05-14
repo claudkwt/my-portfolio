@@ -4,15 +4,17 @@ import { navPages } from "../utils/navPages";
 import { motion } from 'framer-motion';
 import SocialMedia from "./socialMedia";
 import useWindowSize from "@/utils/useWindowSize";
+import { ArrowLeft } from "lucide-react";
 
-interface SideBarProps {
+export interface SideBarProps {
     isBasic?: boolean;
     aboutRef?: React.RefObject<HTMLDivElement>;
     experienceRef?: React.RefObject<HTMLDivElement>;
     projectsRef?: React.RefObject<HTMLDivElement>;
+    logoVariant?: string;
 }
 
-export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef}: SideBarProps) {
+export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef, logoVariant}: SideBarProps) {
     const navigate = useNavigate();
     const [nav, setNav]  = useState<number>(0);
     const [activeSection, setActiveSection] = useState<string>('about');
@@ -68,14 +70,16 @@ export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef}:
         <>
             {!isMobile ?
             <div
-                className="top-0 sticky h-full md:flex md:flex-col pt-10 pr-24 justify-between"
+                className="top-0 sticky h-full md:flex md:flex-col pr-24 justify-between"
             >
                 <div>
                     <div
                         className="p-6 bg-primary text-2xl font-black text-black w-fit"
                         onClick={handleLogoClick}
                     >
-                        CL
+                        {(logoVariant == "back") 
+                        ? <ArrowLeft size={28} strokeWidth={3} />
+                        : "CL"}
                     </div>
                     {!isBasic
                     ? <ul className="mt-12 flex flex-col space-y-1">
