@@ -5,7 +5,7 @@ import useWindowSize from "@/utils/useWindowSize";
 
 export default function LandingPage() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [nav, setNav]  = useState<number>(0);
+    const [_, setNav]  = useState<number>(0);
     const [isVisible, setIsVisible] = useState(true);
     const { width } = useWindowSize();
     const isMobile = width < 768

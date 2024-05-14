@@ -58,7 +58,7 @@ export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef, 
               });
             };
         }
-      }, []);
+      }, [aboutRef, experienceRef, projectsRef, isBasic]);
 
     function handleLogoClick(){
         if (isBasic){
