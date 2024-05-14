@@ -18,7 +18,7 @@ function Home() {
           ${isMobile ? "" : "pt-10"}`}
         >
           <Sidebar aboutRef={aboutRef} experienceRef={experienceRef} projectsRef={projectsRef} />
-          <div className={`w-full md:w-1/2 flex-col overflow-y-visible scrollbar
+          <div className={`w-full md:w-1/2 flex-col h-fit
             ${isMobile ? "pt-10" : ""}`}
           >
               {navPages.map((item) => {

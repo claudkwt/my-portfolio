@@ -1,36 +1,43 @@
 import { ArrowDownToLine } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from 'framer-motion';
+import useWindowSize from "@/utils/useWindowSize";
 
 export default function LandingPage() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [nav, setNav]  = useState<number>(0);
+    const [isVisible, setIsVisible] = useState(true);
+    const { width } = useWindowSize();
+    const isMobile = width < 768
     const controls = useAnimation();
   
     useEffect(() => {
         let lastScrollY = window.scrollY;
-        
-        const handleScroll = () => {
-          if (window.scrollY > 30 && window.scrollY > lastScrollY) {
-            controls.start({
-              opacity: 0,  // fades the div out
-              height: 0,   // collapses the div's height
-              transition: { duration: 0.5 } // controls the speed of the animation
-            });
-          } else if (window.scrollY < lastScrollY && window.scrollY < 30) {
-            controls.start({
-              opacity: 1, // restores opacity
-              height: '100vh', // expands the div's height
-              transition: { duration: 0.5 } // controls the speed of the animation
-            });
-          }
-          lastScrollY = window.scrollY;
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, [controls]);
+        if (!isMobile) {
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    setIsVisible(false);
+                    controls.start({
+                    opacity: 0,  // fades the div out
+                    height: 0,   // collapses the div's height
+                    transition: { duration: 0.5 } // controls the speed of the animation
+                    });
+                } else if (window.scrollY < 30 && !isVisible) {
+                    setIsVisible(true);
+                    controls.start({
+                    opacity: 1, // restores opacity
+                    height: '100vh', // expands the div's height
+                    transition: { duration: 0.5 } // controls the speed of the animation
+                    });
+                }
+                lastScrollY = window.scrollY;
+            };
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        }
+       
+      }, [controls, isMobile, isVisible]);
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [_, setNav]  = useState<number>(0);
 
     const scrollToSection = (sectionId : string) => {
         const section = document.getElementById(sectionId);
@@ -60,7 +67,7 @@ export default function LandingPage() {
                         </div>
                     </span>
                 </div>
-                <div className="justify-self-end" onClick={() => {handleNav(1, "About")}}>
+                <div className="justify-self-end mb-5" onClick={() => {handleNav(1, "About")}}>
                     <ArrowDownToLine />
                 </div>
             </div>

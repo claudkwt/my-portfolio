@@ -73,6 +73,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+  html {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+
+  html::-webkit-scrollbar {
+      display: none; /* For Chrome, Safari, and Opera */
   }
 }
 
@@ -82,9 +91,10 @@
     height: 5px;
   }
 
-  .scrollbarHidden::-webkit-scrollbar{
-    width: 20px;
+  .scrollbar-hidden::-webkit-scrollbar{
+    width: 0px;
     height: 0px;
+    display: none;
   }
 
   .scrollbar::-webkit-scrollbar-track {
