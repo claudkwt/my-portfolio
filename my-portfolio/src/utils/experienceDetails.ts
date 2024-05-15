@@ -29,5 +29,6 @@ export type jobCardProps = {
     description: string, 
     startTime: Date, 
     endTime?: Date,
-    labels?: string[] ,
+    labels?: string[],
+    isMobile?: boolean,
 }

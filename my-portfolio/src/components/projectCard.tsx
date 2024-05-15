@@ -18,6 +18,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import ProjectTagBar from "./projectTag";
 import { Button } from "@/app/ui/button";
+import { SquareArrowUpRight } from "lucide-react";
 
 export interface projectCardProps {
     id: number, 
@@ -69,7 +70,7 @@ export default function ProjectCard(project: projectCardProps) {
             <div className="flex flex-col w-fit h-full">
               <DialogHeader className="grow">
                 <DialogTitle className="mb-3">{project.title}</DialogTitle>
-                <DialogDescription className="text-justify whitespace-normal">
+                <DialogDescription className="text-justify whitespace-normal mb-6">
                   {project.description}
                 </DialogDescription>
               </DialogHeader>
@@ -97,6 +98,7 @@ export default function ProjectCard(project: projectCardProps) {
               onClick={() => navigate(`/projects/${project.id}`)}
             >
               View More
+              <SquareArrowUpRight size={20} color="#ffffff" strokeWidth={2} className="ml-1" />
             </Button>
           </div>
         </DialogContent>

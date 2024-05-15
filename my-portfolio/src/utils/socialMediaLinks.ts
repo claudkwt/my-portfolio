@@ -1,7 +1,9 @@
-import LinkedInLogo from '../assets/LinkedInLogo.svg';
-import GmailLogo from "../assets/GmailLogo.svg";
-import GithubLogo from "../assets/GithubLogo.svg";
+import LinkedInLogo from '../assets/LinkedIn.svg';
+import GmailLogo from "../assets/Gmail.svg";
+import GithubLogo from "../assets/Github.svg";
 
+
+//Logos are obtained from Luicide React Icons, strok 1px, Color #d8d8e4, size 16px
 export const socialMediaLinks = [
     {
         id: 0, 
