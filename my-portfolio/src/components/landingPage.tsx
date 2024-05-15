@@ -15,7 +15,7 @@ export default function LandingPage() {
             className="overflow-hidden snap-start h-full"
             ref={ref}
             initial="visible"
-            animate={isInView ? "hidden" : "visible"}
+            animate={isInView ? "visible" : "hidden"}
             variants={variants}
             transition={{ duration: 0.5 }}
         >
