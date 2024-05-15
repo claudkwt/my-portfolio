@@ -12,9 +12,9 @@ function Home() {
     const experienceRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
     return (
-      <>
+      <div className="snap-y snap-mandatory h-screen w-screen overflow-y-scroll scrollbar-hidden">
         <LandingPage />
-        <div className={`px-16 flex w-screen pb-10 overflow-x-hidden place-content-center h-screen scrollbar overflow-auto 
+        <div className={`px-16 flex w-screen pb-10 overflow-x-hidden place-content-center h-screen scrollbar overflow-auto snap-start 
           ${isMobile ? "" : "pt-10"}`}
         >
           <Sidebar aboutRef={aboutRef} experienceRef={experienceRef} projectsRef={projectsRef} />
@@ -40,7 +40,7 @@ function Home() {
               })}
           </div>
         </div>
-      </>
+      </div>
     );
 }
 

@@ -46,7 +46,7 @@ export default function ProjectCard(project: projectCardProps) {
     return (
       <Dialog open={isOpen} onOpenChange={setOpen}>
         <Card
-          className="w-full m-3 border-0 bg-popover rounded-xl overflow-x-clip"
+          className="w-full m-3 border-0 bg-popover rounded-xl overflow-x-clip clickable"
           key={project.id}
           onClick={toggleDialog}
         >

@@ -83,6 +83,9 @@
   html::-webkit-scrollbar {
       display: none; /* For Chrome, Safari, and Opera */
   }
+  .clickable {
+    cursor: pointer;
+  }
 }
 
 @layer utilities {
