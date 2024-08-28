@@ -33,7 +33,7 @@ export const aboutDetails = {
     { 
       name: 'Designer', 
       value: 12, 
-      labelColor: "#9A0808",
+      labelColor: "#7f1d1d",
       skills: [
         "3D Modeling & Rendering",
         "Illustrator & Photoshop",
@@ -41,6 +41,6 @@ export const aboutDetails = {
       ]
     },
   ],
-  pieColors: ['#9A0808', '#CFC0A3' ],
+  pieColors: ['#7f1d1d', '#CFC0A3' ],
 
 };

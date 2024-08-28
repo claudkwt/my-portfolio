@@ -61,9 +61,9 @@ export default function ProjectPage () {
                 <Sidebar isBasic={true} logoVariant='back'/>
                 <div className="w-full md:w-1/2 flex-col space-y-10">
                     <h1 className='text-2xl font-bold'>{project.title}</h1>
-                    <div className='text-muted-text font-light'>
-                        {project.description}
-                    </div>
+                    <div className='text-muted-text whitespace-normal'
+                        dangerouslySetInnerHTML={{ __html: project.description }}
+                    />
                     <div className="w-fit justify-self-start place-items-baseline">
                     {project.tags.map((tag) => (
                       <span key={tag}>
@@ -72,21 +72,21 @@ export default function ProjectPage () {
                     ))}
                   </div>
                 <Carousel setApi={setApi}>
-                    <div className="text-center text-sm text-muted-text mb-3">
+                    {/* <div className="text-center text-sm text-muted-text mb-3">
                         Slide {current} of {count}
-                    </div>
+                    </div> */}
                     <CarouselPrevious />
                     <CarouselNext />
                     <CarouselContent className='mb-10'>
                     {
                         project.assets.map((asset, index) => {
                         return (
-                            <CarouselItem key={asset[0]}>
+                            <CarouselItem key={asset[0]} className='md:basis-1 lg:basis-1/2 h-120'>
                                 <Card className='flex h-full items-center justify-center rounded-xl'>
-                                    <CardContent className="flex flex-col space-y-6 items-center justify-center p-2">
+                                    <CardContent className="flex flex-col aspect-square space-y-6 items-center justify-center p-2">
                                         <span className='text-muted-text italic'>{asset[1]}</span>
                                         <img
-                                            className="object-cover"
+                                            className="object-cover h-full"
                                             src={asset[0]}
                                             alt="loading..."
                                             onClick={() => handleImageClick(index)}
