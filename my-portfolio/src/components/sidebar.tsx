@@ -19,18 +19,10 @@ export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef, 
     const [nav, setNav]  = useState<number>(0);
     const [activeSection, setActiveSection] = useState<string>('about');
     const { width } = useWindowSize();
-    const isMobile = width < 768
+    const isMobile = width < 768;
 
-    const scrollToSection = (sectionId : string) => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      };
-
-    const handleNav = (val : number, label: string) => {
+    const handleNav = (val : number) => {
         setNav(val)
-        scrollToSection(label)
     }
     useEffect(() => {
         const options = {
@@ -42,6 +34,7 @@ export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef, 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
+                        setNav(0)
                         setActiveSection(entry.target.id);
                     }
                 });
@@ -62,7 +55,7 @@ export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef, 
 
     function handleLogoClick(){
         if (isBasic){
-            navigate("/")
+            navigate("/#Projects")
         }
     }
 
@@ -91,7 +84,7 @@ export default function Sidebar({isBasic, aboutRef, experienceRef, projectsRef, 
                                     key={item.id}
                                 >
                                     <li
-                                        onClick={ () => {handleNav(item.id, item.text)}}
+                                        onClick={ () => {handleNav(item.id)}}
                                     >
                                         <Link
                                             className={`${(nav === item.id|| activeSection === item.text) ? "font-medium": "font-light"}`}

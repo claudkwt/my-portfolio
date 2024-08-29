@@ -36,7 +36,7 @@ export default function ProjectCard(project: projectCardProps) {
     const isMobile = width < 768
 
     function toggleDialog() {
-        if (isMobile){
+        if (true){
             console.log("IsMobile");
             // TODO: Render Mobile dialog content as a different page
             navigate(`/projects/${project.id}`)
@@ -70,9 +70,8 @@ export default function ProjectCard(project: projectCardProps) {
             <div className="flex flex-col w-fit h-full">
               <DialogHeader className="grow">
                 <DialogTitle className="mb-3">{project.title}</DialogTitle>
-                <DialogDescription className="text-justify whitespace-normal mb-6">
-                  {project.description}
-                </DialogDescription>
+                <DialogDescription className="text-justify whitespace-normal mb-6 line-clamp-7"
+                        dangerouslySetInnerHTML={{ __html: project.description }}/>
               </DialogHeader>
               <DialogFooter className="w-fit justify-self-start place-items-baseline">
                 {project.tags.map((tag) => (

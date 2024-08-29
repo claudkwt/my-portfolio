@@ -2,21 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Home from "./home.tsx";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProjectPage from "./projects/[id].tsx";
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/projects/:id',
+    element: <ProjectPage />,
+  },
+]
+)
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          Component={() => (
-                <Home />
-          )}
-        />
-        <Route path="/projects/:id" element={<ProjectPage />} />
-      </Routes>
-    </Router>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

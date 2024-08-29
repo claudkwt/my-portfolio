@@ -6,18 +6,23 @@ export const projectDetails = [
     {
         id: 0, 
         title: "Indigo Scales Community Web",
-        description: `Used by 130 community users, this Web App helped them reconnect with 
-        fellow musicians after regular activities and communication was disrupted by the pandemic. 
-        Our app provides them a space to connect and find opportunities to collaborate and perform together
-        in open mics and concert events.
-
+        description: `Used by 130 community users, this web app was made for local music community Indigo Scales to 
+        help them create a space for local musicians to network and find opportunities to collaborate in bands and perform together
+        in open mics and concert events. 
+        <br /><br />
         My team of 2 conducted user research closely with the community
         and designed this social web app, ensuring that the app fits perfectly
         into the user needs. Based off the community's requirements, the app is designed with mobile users in mind, 
-        with simple and intuitive UI with features like a community Facebook-like forum and google authentication.        
+        with intuitive UI compacted with many features.
+        <br /><br />
+        This webapp allows users to interact in a Facebook-inspired forum, creating their own posts
+        and interacting with others via likes and comments, as well as searching and filtering posts. Musicians can also organise
+        and attend events within the community, fostering strong bonds and collaboration. They can view each other profiles to connect
+        with others of similar musical taste and share music they made via soundcloud api.
         `,
         tags: [ 
             'React',
+            'Typescript',
             'TailwindCSS',
             'NextJS',
             'UI/UX', 
