@@ -26,7 +26,7 @@ export interface projectCardProps {
     tags: string[],
     assets: string[][],
     isCard: boolean,
-    link: string,
+    link?: string,
 }
 
 export default function ProjectCard(project: projectCardProps) {
