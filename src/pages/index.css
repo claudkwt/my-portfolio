@@ -114,4 +114,30 @@
   .scrollbar::-webkit-scrollbar-thumb:hover {
     background: white;
   }
+
+  #anchor{
+    width: 90%;
+  }
+
+  #eye, #eye img{
+    position: absolute;
+    width: 10%;
+    top: 35%;
+    z-index: 1;
+  }
+
+  .leftEye, .leftEye img {
+    left: 35%; 
+  }
+  .rightEye, .rightEye img {
+    left: 55%; 
+  }
+
+  #specs {
+    position: absolute;
+    width: 40%;
+    top: 32%;
+    left: 32%;
+    z-index: 1;
+  }
 }
