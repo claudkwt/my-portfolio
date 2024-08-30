@@ -1,12 +1,14 @@
 import { ArrowDownToLine } from "lucide-react";
 import { motion, useInView } from 'framer-motion';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import face from '@/assets/face.svg';
 import eye from '@/assets/eye.svg';
 import specs from '@/assets/specs.svg';
+import smile from "@/assets/smile.svg";
 import useWindowSize from "@/utils/useWindowSize";
 
 export default function Hero() {
+    const [state, setState] = useState<"awake" | "sleep" | "confused">("sleep");
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const { width } = useWindowSize();
@@ -29,6 +31,7 @@ export default function Hero() {
         const boundingBox = anchor?.getBoundingClientRect();
 
         document.addEventListener('mousemove', (e) => {
+            setState("awake");
             const mouseX = e.clientX;
             const mouseY = e.clientY;
             if (boundingBox){
@@ -68,16 +71,19 @@ export default function Hero() {
                             Full Stack Developer | UI-UX Designer
                         </div>
                     </span>
-                    <div className={`flex w-1/3 h-fit self-center place-content-center relative
+                    <div className={`char ${state} flex w-1/3 h-1/3 self-center place-content-center relative
                         ${isMobile ? 'order-first mb-5' : ''}
                         `}>    
-                        <img id="anchor" src={face}/>
-                        <div id="eyes" className="w-full h-full" style={{position: "absolute"}}>
+                        <span className="face">
+                            <img id="anchor" src={face}/>
+                        </span>
+                        <div id="eyes" className={`${(state != "awake") ? "hidden": ""}`}>
                             <img id="eye" className="rightEye" src={eye} style={{}}/>
                             <img id="eye" className="leftEye" src={eye} style={{}}/>
                         </div>    
-                        <img id="specs" src={specs}
-                        />
+                        <img id="specs" src={specs}/>
+                        <img id="smile" className={`${(state != "awake") ? "hidden": ""}`} src={smile}/>
+                        <div id="sleepFace"></div>
                     </div>
                 </div>
                 <div className="justify-self-end mb-5">
