@@ -25,7 +25,6 @@ export default function Hero() {
     }
     const eyes = document.querySelectorAll<HTMLElement>("#eye");
     const anchor = document.getElementById('anchor');
-    const specsEle = document.getElementById("specs");
     useEffect(() => {
         const boundingBox = anchor?.getBoundingClientRect();
 
@@ -58,7 +57,9 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
         >
             <div className="flex flex-col items-center justify-center h-full">
-                <div className="flex h-full w-full justify-center space-x-10">
+                <div className={`flex h-full w-full justify-center space-x-10
+                ${isMobile ? 'flex-col' : ""} 
+                `}>
                     <span className="self-center">
                         <div className="mb-3 text-3xl md:text-4xl font-medium text-center">
                             Hi, my name is <span className="font-black">Claudia.</span>
@@ -67,7 +68,9 @@ export default function Hero() {
                             Full Stack Developer | UI-UX Designer
                         </div>
                     </span>
-                    <div className="flex w-1/3 h-fit self-center place-content-center relative">    
+                    <div className={`flex w-1/3 h-fit self-center place-content-center relative
+                        ${isMobile ? 'order-first mb-5' : ''}
+                        `}>    
                         <img id="anchor" src={face}/>
                         <div id="eyes" className="w-full h-full" style={{position: "absolute"}}>
                             <img id="eye" className="rightEye" src={eye} style={{}}/>
