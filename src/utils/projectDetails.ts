@@ -96,7 +96,8 @@ export const projectDetails = [
         description: `My humble portfolio site you are looking at right now~
         <br /><br />
         Created using Vite & React, written in typescript. Hosted on Vercel.
-        `,
+        Hero Animation is inspired by Robb Owen and
+        `, // https://hackernoon.com/creating-facial-expressions-with-css-animations
         tags: [ 
             'Vite', 
             'React',
