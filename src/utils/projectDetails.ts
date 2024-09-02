@@ -1,7 +1,8 @@
 import project0_1 from "@/assets/IndigoWebApp/Indigo_Figma.png";
 import project0_3 from "@/assets/IndigoWebApp/IndigoScales_demo.gif";
 import project0_2 from "@/assets/IndigoWebApp/Mockups.png";
-import project1_POC from "@/assets/HololensGearDetection/POCVideo.mp4"
+import project1_POC from "@/assets/HololensGearDetection/POCVideo.mp4";
+import project4_0 from "@/assets/AgriArkGame/project4_0.png";
 
 export const assetType = {
     Image: "image",
@@ -96,7 +97,8 @@ export const projectDetails = [
         description: `My humble portfolio site you are looking at right now~
         <br /><br />
         Created using Vite & React, written in typescript. Hosted on Vercel.
-        Hero Animation is inspired by Robb Owen and
+        Hero Animation is inspired by Robb Owen and created using vanilla CSS and javascript. 
+        Assets obtained from <a href="https://www.freepik.com" target="_blank">Freepik</a> and modified using Illustrator
         `, // https://hackernoon.com/creating-facial-expressions-with-css-animations
         tags: [ 
             'Vite', 
@@ -107,8 +109,36 @@ export const projectDetails = [
         isCard: true,
         link: "https://github.com/claudkwt/my-portfolio"
     },
+    {
+        id: 4, 
+        title: "AgriArk Game",
+        description: `Seaforms by Team <a style="text-decoration:underline;" href="https://agriark.weebly.com/" target="_blank">AgriArk</a> aims to be an innovative and sustainable solution to 
+        land scarcity caused by the rapid rise in sea levels globally. Seaforms is a self-sufficient, modular floating platform that 
+        utilises sea space for production, industrial, and commercial use. The first milestone of this project is to create an agricultural 
+        floating platform to tackle the issue of food security.
+        <br /><br />
+        For their market research towards farming businesses, AgriArk required an interactive gamified platform to to showcase and explain the various features envisioned on Seaforms, 
+        their floating farm in an engaging and virtual manner to potential customers. At the same time through this simple, interactive game, the team managed to conduct a market evaluation 
+        on the demand and requirements their product needs to meet. After interviewing 20 local farms, the game aided the team to secure 9 leads and further improve their product by identifying
+        lack-of-demand features that are not valued by customers.
+        <br /><br />
+        The objective of this game showcases the features of the floating farm (automation, planting models, sustainable energy, manpower). Players can 
+        choose different combinations and quantity of these features to ultimately create the most efficient farm of their dreams.
+        `,
+        tags: [ 
+            'Javascript',
+            'PhaserJS', 
+            'Animation',
+        ],
+        assets: [
+            [assetType["Video"], "https://www.youtube.com/embed/FRRADHL__zE?si=SF0FC09WjHtklnOp", "Seaforms Product Video"],
+            [assetType["Image"], project4_0, "Seaforms product features"]
+        ],
+        isCard: false,
+        link: "https://agriark.github.io/farmdays/src/index.html",
+    },
     // {
-    //     id: 4, 
+    //     id: 5, 
     //     title: "Project Title",
     //     description: `Deploy your new project in one-click.`, //Using emoji or avatar on a drawing board and upload (https://personas.draftbit.com/)
     //     tags: [ 
