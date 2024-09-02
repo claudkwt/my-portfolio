@@ -3,6 +3,7 @@ import project0_3 from "@/assets/IndigoWebApp/IndigoScales_demo.gif";
 import project0_2 from "@/assets/IndigoWebApp/Mockups.png";
 import project1_POC from "@/assets/HololensGearDetection/POCVideo.mp4";
 import project4_0 from "@/assets/AgriArkGame/project4_0.png";
+import project4_1 from "@/assets/AgriArkGame/project4_1.jpg";
 
 export const assetType = {
     Image: "image",
@@ -132,7 +133,8 @@ export const projectDetails = [
         ],
         assets: [
             [assetType["Video"], "https://www.youtube.com/embed/FRRADHL__zE?si=SF0FC09WjHtklnOp", "Seaforms Product Video"],
-            [assetType["Image"], project4_0, "Seaforms product features"]
+            [assetType["Image"], project4_0, "Seaforms product features"],
+            [assetType["Image"], project4_1, "Me at the team's pitch"]
         ],
         isCard: false,
         link: "https://agriark.github.io/farmdays/src/index.html",
