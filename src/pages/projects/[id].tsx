@@ -9,12 +9,10 @@ import {
   CarouselPrevious,
 } from "@/app/ui/carousel";
 import { useEffect, useState } from "react";
-import Modal from "@/components/modal";
 import { Card, CardContent } from "@/app/ui/card";
 import ProjectTagBar from "@/components/projectTag";
 import { Button } from "@/app/ui/button";
-import { Dialog, DialogClose, DialogContent, DialogFooter } from "@/app/ui/dialog";
-import { X } from "lucide-react";
+import { Dialog, DialogContent } from "@/app/ui/dialog";
 
 export default function ProjectPage() {
   const [openModals, setOpenModals] = useState<boolean[]>([]);
