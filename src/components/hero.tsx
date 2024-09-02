@@ -82,7 +82,6 @@ export default function Hero() {
         }, 8000);
       } else if (state == "sleep") {
         setState("awake");
-        justAwoke = true; // Ensure it stays awake for a short period
         clearTimeout(sleepTimeout);
         clearTimeout(timeout);
         sleepTimeout = setTimeout(() => {
