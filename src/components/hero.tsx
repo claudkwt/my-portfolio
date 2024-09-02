@@ -64,6 +64,7 @@ export default function Hero() {
         setState("confused");
         justAwoke = false; // Reset the flag
         clearTimeout(timeout); // Clear any existing sleep timeout
+        clearTimeout(sleepTimeout);
         timeout = setTimeout(() => {
           setState("awake");
           clearTimeout(sleepTimeout);
@@ -78,10 +79,10 @@ export default function Hero() {
         clearTimeout(timeout);
         sleepTimeout = setTimeout(() => {
           setState("sleep");
-          justAwoke = true;
         }, 8000);
       } else if (state == "sleep") {
         setState("awake");
+        justAwoke = true; // Ensure it stays awake for a short period
         clearTimeout(sleepTimeout);
         clearTimeout(timeout);
         sleepTimeout = setTimeout(() => {
@@ -127,7 +128,7 @@ export default function Hero() {
                         </div>
                     </span>
                     <div className={`char ${state} flex w-1/3 self-center place-content-center relative
-                        ${isMobile ? 'order-first mb-5 h-1/5' : 'h-2/6'}
+                        ${isMobile ? 'order-first mb-5 h-1/5' : 'h-1/3'}
                         `}>    
                         <span className="face" onClick={() => updateClicks(clicks +1)}>
                             <img id="anchor" src={face}/>
