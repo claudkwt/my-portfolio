@@ -126,8 +126,8 @@ export default function Hero() {
                             Full Stack Developer | UI-UX Designer
                         </div>
                     </span>
-                    <div className={`char ${state} flex w-1/3 self-center place-content-center relative
-                        ${isMobile ? 'order-first mb-5 h-1/5' : 'h-1/3'}
+                    <div className={`char ${state} flex self-center place-content-center relative
+                        ${isMobile ? 'order-first mb-5 h-40 w-48' : 'h-96 w-80'}
                         `}>    
                         <span className="face" onClick={() => updateClicks(clicks +1)}>
                             <img id="anchor" src={face}/>

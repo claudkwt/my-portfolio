@@ -74,6 +74,54 @@ export const projectDetails = [
     },
     {
         id: 2, 
+        title: "Portfolio Site",
+        description: `My humble portfolio site you are looking at right now~
+        <br /><br />
+        Created using Vite & React, written in typescript. Hosted on Vercel.
+        Hero Animation is inspired by Robb Owen and created using vanilla CSS and javascript. 
+        Assets obtained from <a href="https://www.freepik.com" target="_blank">Freepik</a> and modified using Illustrator.
+        `, // https://hackernoon.com/creating-facial-expressions-with-css-animations
+        tags: [ 
+            'Vite', 
+            'React',
+            'TailwindCSS'
+        ],
+        assets: [],
+        isCard: true,
+        link: "https://github.com/claudkwt/my-portfolio"
+    },
+    {
+        id: 3, 
+        title: "AgriArk Game",
+        description: `Seaforms by Team <a style="text-decoration:underline;" href="https://agriark.weebly.com/" target="_blank">AgriArk</a> aims to be an innovative and sustainable solution to 
+        land scarcity caused by the rapid rise in sea levels globally. Seaforms is a self-sufficient, modular floating platform that 
+        utilises sea space for production, industrial, and commercial use. The first milestone of this project is to create an agricultural 
+        floating platform to tackle the issue of food security.
+        <br /><br />
+        For their market research towards farming businesses, AgriArk required an interactive gamified platform to to showcase and explain the various features envisioned on Seaforms, 
+        their floating farm in an engaging and virtual manner to potential customers. At the same time through this simple, interactive game, the team managed to conduct a market evaluation 
+        on the demand and requirements their product needs to meet. After interviewing 20 local farms, the game aided the team to secure 9 leads and further improve their product by identifying
+        lack-of-demand features that are not valued by customers.
+        <br /><br />
+        The objective of this game showcases the features of the floating farm (automation, planting models, sustainable energy, manpower). Players can 
+        choose different combinations and quantity of these features to ultimately create the most efficient farm of their dreams. The game is created using PhaserJS and ExpressJS, coded using vanilla JavaScript.
+        `,
+        tags: [ 
+            'Javascript',
+            'PhaserJS', 
+            'Animation',
+            "ExpressJS",
+        ],
+        assets: [
+            [assetType["Video"], "https://www.youtube.com/embed/FRRADHL__zE?si=SF0FC09WjHtklnOp", "Seaforms Product Video"],
+            [assetType["Image"], project4_0, "Seaforms product features"],
+            [assetType["Image"], project4_1, "Me at the team's pitch"]
+        ],
+        isCard: false,
+        link: "https://agriark.github.io/farmdays/src/index.html",
+    },
+    {
+        id: 4, 
         title: "Aim Trainer",
         description: `As an novice gamer, when I first started playing FPS shooting games like Apex Legends and Overwatch2,
         I found that it was hard to land my shots. Shooting in these games was not easy and I needed to work on my aim to contribute
@@ -91,53 +139,6 @@ export const projectDetails = [
         assets: [],
         isCard: true,
         link: "",
-    },
-    {
-        id: 3, 
-        title: "Portfolio Site",
-        description: `My humble portfolio site you are looking at right now~
-        <br /><br />
-        Created using Vite & React, written in typescript. Hosted on Vercel.
-        Hero Animation is inspired by Robb Owen and created using vanilla CSS and javascript. 
-        Assets obtained from <a href="https://www.freepik.com" target="_blank">Freepik</a> and modified using Illustrator
-        `, // https://hackernoon.com/creating-facial-expressions-with-css-animations
-        tags: [ 
-            'Vite', 
-            'React',
-            'TailwindCSS'
-        ],
-        assets: [],
-        isCard: true,
-        link: "https://github.com/claudkwt/my-portfolio"
-    },
-    {
-        id: 4, 
-        title: "AgriArk Game",
-        description: `Seaforms by Team <a style="text-decoration:underline;" href="https://agriark.weebly.com/" target="_blank">AgriArk</a> aims to be an innovative and sustainable solution to 
-        land scarcity caused by the rapid rise in sea levels globally. Seaforms is a self-sufficient, modular floating platform that 
-        utilises sea space for production, industrial, and commercial use. The first milestone of this project is to create an agricultural 
-        floating platform to tackle the issue of food security.
-        <br /><br />
-        For their market research towards farming businesses, AgriArk required an interactive gamified platform to to showcase and explain the various features envisioned on Seaforms, 
-        their floating farm in an engaging and virtual manner to potential customers. At the same time through this simple, interactive game, the team managed to conduct a market evaluation 
-        on the demand and requirements their product needs to meet. After interviewing 20 local farms, the game aided the team to secure 9 leads and further improve their product by identifying
-        lack-of-demand features that are not valued by customers.
-        <br /><br />
-        The objective of this game showcases the features of the floating farm (automation, planting models, sustainable energy, manpower). Players can 
-        choose different combinations and quantity of these features to ultimately create the most efficient farm of their dreams.
-        `,
-        tags: [ 
-            'Javascript',
-            'PhaserJS', 
-            'Animation',
-        ],
-        assets: [
-            [assetType["Video"], "https://www.youtube.com/embed/FRRADHL__zE?si=SF0FC09WjHtklnOp", "Seaforms Product Video"],
-            [assetType["Image"], project4_0, "Seaforms product features"],
-            [assetType["Image"], project4_1, "Me at the team's pitch"]
-        ],
-        isCard: false,
-        link: "https://agriark.github.io/farmdays/src/index.html",
     },
     // {
     //     id: 5, 
