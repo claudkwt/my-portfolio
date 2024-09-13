@@ -1,6 +1,7 @@
 import { aboutDetails, aboutDetailsSkillLabels, type aboutDetailsSkillGroups } from "../utils/aboutDetails";
 import { ScrollArea, ScrollBar } from "@/app/ui/scroll-area";
 import { Badge } from "@/app/ui/badge";
+import { motion } from "framer-motion";
 
 export default function About() {
 
@@ -100,15 +101,20 @@ function SkillGroupBlock ({skills, label}: {skills: string[], label: string}) {
   }
   return (
     <div className="mb-3">
-      <div className="italic mb-1">{formattedLabels[label as aboutDetailsSkillGroups]}</div>
-      <ScrollArea className="w-96 whitespace-nowrap rounded">
+      <motion.div 
+        className="italic mb-1"
+        whileHover={{ x: 10, scale:1.1 }}
+      >
+        {formattedLabels[label as aboutDetailsSkillGroups]}
+      </motion.div>
+      <ScrollArea className="w-full whitespace-nowrap rounded">
         <div className="flex w-max space-x-4 p-4">
           {skills.map((skill: string) => (
-            <Badge variant="destructive">{skill}</Badge>
+            <Badge className="bg-highlight-secondary text-white" >{skill}</Badge>
           ))}
         </div>
         <ScrollBar orientation="horizontal" />
       </ScrollArea>
     </div>
-  )
+  );
 }
