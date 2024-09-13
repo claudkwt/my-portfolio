@@ -66,7 +66,7 @@ export default function ProjectCard(project: projectCardProps) {
             ))}
           </CardFooter>
         </Card>
-        <DialogContent className="p-10 min-w-[80%] min-h-80">
+        <DialogContent className="p-10 min-h-80 w-4/5">
           <div className="justify-start space-x-8 flex h-full">
             <div className="flex flex-col w-fit h-full">
               <DialogHeader className="grow">

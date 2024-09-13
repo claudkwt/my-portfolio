@@ -1,68 +1,30 @@
-import { aboutDetails } from "../utils/aboutDetails";
-import { Pie, Cell, PieChart } from 'recharts';
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-
-interface CustomizedLabelProps {
-  cx: number, 
-  cy: number,
-  midAngle: number;
-  innerRadius: number;
-  outerRadius: number;
-  index: number;
-}
-
+import { aboutDetails, aboutDetailsSkillLabels, type aboutDetailsSkillGroups } from "../utils/aboutDetails";
+import { ScrollArea, ScrollBar } from "@/app/ui/scroll-area";
+import { Badge } from "@/app/ui/badge";
 
 export default function About() {
-  const [isOpen, setOpen] = useState(0);
-  
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index }: CustomizedLabelProps) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  
-    return (
-      <text
-        x={x}
-        y={y}
-        fontWeight="bold"
-        className="clickable"
-        fill={`${aboutDetails.pieChart[index % aboutDetails.pieChart.length].labelColor}`}
-        textAnchor={"middle"}
-        dominantBaseline="central"
-      >
-        {`${aboutDetails.pieChart[index % aboutDetails.pieChart.length].name}`}
-      </text>
-    );
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function handleClick(input?: boolean, index?: any): void {
-    if (input && index.target){
-      if (index.target.id)
-        setOpen(Number(index.target.id)+1);
-      } else {
-        setOpen(0);
-      }
-  }
-  
-  useEffect(() => {
-    console.log(isOpen)
-  }, [isOpen, setOpen])
 
   return (
     <>
-      <span className="font-bold text-xl"> {aboutDetails.title} </span>
+      <h1 className="hidden md:block"> {aboutDetails.title} </h1>
       <div
         className="my-7 text-justify text-muted-text whitespace-normal"
         dangerouslySetInnerHTML={{ __html: aboutDetails.description }}
       />
-      <div className="font-light italic text-muted-text text-center">
-        Click/Hover on me!
+      <div>
+        <h2>Skills</h2>
+        {Object.keys(aboutDetails.skillGroups).map((skillGroupKey) => {
+          return <SkillGroupBlock 
+            skills={aboutDetails.skillGroups[skillGroupKey as aboutDetailsSkillGroups]} 
+            label={skillGroupKey}
+          />
+        })}
       </div>
-      <div className="flex place-content-center mb-3">
-        <PieChart
+      {/* <div className="font-light italic text-muted-text text-center">
+        Click/Hover on me!
+      </div> */}
+      {/*<div className="flex place-content-center mb-3">
+        * <PieChart
           width={200}
           height={200}
           style={{ outline: "none", stroke: "none" }}
@@ -96,16 +58,9 @@ export default function About() {
                 />
               ))}
             </Pie>
-        </PieChart>
-        {/* <div className=" w-1/3 self-center text-right text-sm grow-0 bg-popover p-4 rounded-2xl"> 
-          {aboutDetails.pieChart && 
-              aboutDetails.pieChart[1].skills?.map((item) => (
-                <ul key={item}>{item}</ul>
-              ))
-            }
-        </div> */}
-      </div>
-      {isOpen == 1 && (
+        </PieChart> 
+      </div>*/}
+      {/* {isOpen == 1 && (
         <motion.div 
           className="bg-popover rounded-2xl w-full text-sm text-center p-2"
           animate={{opacity: 1, y: 0}}
@@ -130,7 +85,30 @@ export default function About() {
               <ul key={item}>{item}</ul>
             ))}
         </motion.div>
-      )}
+      )} */}
     </>
   );
+}
+
+function SkillGroupBlock ({skills, label}: {skills: string[], label: string}) {
+  
+  const formattedLabels: aboutDetailsSkillLabels  = {
+    "frontEnd": "Frontend",
+    "backEnd": "Backend",
+    "specialMentions": "Special Mentions",
+    "userDesign": "User Design",
+  }
+  return (
+    <div className="mb-3">
+      <div className="italic mb-1">{formattedLabels[label as aboutDetailsSkillGroups]}</div>
+      <ScrollArea className="w-96 whitespace-nowrap rounded">
+        <div className="flex w-max space-x-4 p-4">
+          {skills.map((skill: string) => (
+            <Badge variant="destructive">{skill}</Badge>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
+    </div>
+  )
 }

@@ -5,7 +5,7 @@ import ProjectCard from "./projectCard"
 export default function Projects() {
     return (
         <div className="flex flex-col mb-16">
-            <div className="font-bold text-2xl py-6 hidden md:block">Projects </div>
+            <h1 className="hidden md:block">Projects </h1>
             <div className="xl:grid-cols-3 xl:grid xl:gap-2">
                {projectDetails.map((project) => {
                 return(

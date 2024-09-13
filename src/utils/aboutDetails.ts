@@ -18,7 +18,13 @@ export const aboutDetails = {
     <br /><br />
         
     Feel free to explore my work and find out more about me!`,
-  pieChart: [
+    skillGroups: {
+      frontEnd: ["React", "Typescript", "HTML & CSS", "JavaScript", "TailwindCSS", "Vite" ],
+      backEnd: ["Nodejs", "Prisma", "Python","REST APIs"],
+      userDesign: ["Figma", "Responsive Design", "Interaction Design"],
+      specialMentions: ["Mandarin", "AR Development in Unity", "3D Modeling", "Baking"],
+    }
+  /*pieChart: [
     {
       name: 'Coder', 
       value: 15, 
@@ -26,8 +32,8 @@ export const aboutDetails = {
       skills: [
         "HTML, CSS & JS",
         "React & Typescript",
-        "Python ",
-        "MRTK in Unity C#"
+        "Python",
+        "AR Development using Unity"
       ] 
     },
     { 
@@ -42,5 +48,10 @@ export const aboutDetails = {
     },
   ],
   pieColors: ['#9A0808', '#000C47' ],
-
+  */
 };
+
+export type aboutDetailsSkillGroups = keyof typeof aboutDetails.skillGroups;
+export type aboutDetailsSkillLabels = {
+  [P in aboutDetailsSkillGroups]: string;
+}

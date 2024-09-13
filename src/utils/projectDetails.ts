@@ -33,6 +33,7 @@ export const projectDetails = [
             'React',
             'Typescript',
             'TailwindCSS',
+            'Prisma',
             'NextJS',
             'UI/UX', 
         ],
