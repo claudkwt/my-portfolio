@@ -123,6 +123,28 @@ export const projectDetails = [
     },
     {
         id: 4, 
+        title: "3D Vehicle Controller",
+        description: `Using ThreeJS, I created an interface for tablet users to experience flying an underwater vehicle in 3D space. Users are 
+        able to rotate the object in 6 DOF and orbit the camera to have a better view of the object. When the vehicle move, the users are able
+        to see a trail marking its path as well as toggle a camera lock that follows the object snapping in place. Users can also upload their
+        rosbag files to lookback the history of their vehicle's positioning via a playback scrubbing slider. Other functions include toggling 
+        on and off an underwater environment for a more immersive experience and a shiba model mode. 
+        
+        This project was a good introduction to ThreeJS and what it can do, which was a fun and interesting challenge to complete this in 2 days.
+        It was also my first time using zustand to manage my states which opened my eyes to its potential in global app state managements, helping
+        to decrease latency and unnecessary re-renders, and to significantly reduce prop drilling.`, 
+        tags: [ 
+            'ThreeJS',
+            'React',
+            'Typescript',
+            'Zustand' 
+        ],
+        assets: [],
+        isCard: true,
+        link: "https://bee-x-assignment.vercel.app/",
+    },
+    {
+        id: 5, 
         title: "Aim Trainer",
         description: `As an novice gamer, when I first started playing FPS shooting games like Apex Legends and Overwatch2,
         I found that it was hard to land my shots. Shooting in these games was not easy and I needed to work on my aim to contribute
@@ -142,7 +164,7 @@ export const projectDetails = [
         link: "",
     },
     // {
-    //     id: 5, 
+    //     id: 6, 
     //     title: "Project Title",
     //     description: `Deploy your new project in one-click.`, //Using emoji or avatar on a drawing board and upload (https://personas.draftbit.com/)
     //     tags: [ 
